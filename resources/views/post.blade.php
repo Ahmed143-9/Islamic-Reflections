@@ -1,0 +1,1 @@
+<h1 style="text-align: center">This is the post page</h1>
