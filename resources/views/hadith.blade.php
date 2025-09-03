@@ -22,6 +22,11 @@
                     <li><a href="/hadith" class="nav-link active">Hadith</a></li>
                     <li><a href="/about" class="nav-link">About</a></li>
                 </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
@@ -286,7 +291,7 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 Islamic Reflections. All rights reserved. | May Allah guide us all.</p>
+            <p>&copy;Islamic Reflections. All rights reserved. | May Allah guide us all.</p>
         </div>
     </footer>
 
@@ -785,6 +790,8 @@
             }
         }
 
+        
+
         .collection-card,
         .topic-card {
             animation: fadeInUp 0.6s ease forwards;
@@ -874,22 +881,22 @@
 
         // Mobile menu toggle (if hamburger menu is added later)
        // Mobile menu toggle (if hamburger menu is added later)
-        function toggleMobileMenu() {
-            const navMenu = document.querySelector('.nav-menu');
-            navMenu.classList.toggle('active');
-        }
+        // function toggleMobileMenu() {
+        //     const navMenu = document.querySelector('.nav-menu');
+        //     navMenu.classList.toggle('active');
+        // }
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.main-header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(26, 61, 31, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #2c5530, #1a3d1f)';
-                header.style.backdropFilter = 'none';
-            }
-        });
+        // // Add scroll effect to header
+        // window.addEventListener('scroll', function() {
+        //     const header = document.querySelector('.main-header');
+        //     if (window.scrollY > 50) {
+        //         header.style.background = 'rgba(26, 61, 31, 0.95)';
+        //         header.style.backdropFilter = 'blur(10px)';
+        //     } else {
+        //         header.style.background = 'linear-gradient(135deg, #2c5530, #1a3d1f)';
+        //         header.style.backdropFilter = 'none';
+        //     }
+        // });
 
         // Animate elements on scroll
         const observerOptions = {
@@ -950,53 +957,43 @@
 
         // Initialize daily hadith
         updateDailyHadith();
-    });
+        // Mobile menu toggle
+            const mobileToggle = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            mobileToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            // Close alert messages
+            const alertCloseButtons = document.querySelectorAll('.alert-close');
+            alertCloseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.parentElement.style.display = 'none';
+                });
+            });
+      
     </script>
 
     <!-- Add mobile menu CSS -->
     <style>
-        .mobile-menu-toggle {
-            display: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 10px;
-        }
+       @media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background: #2c5530;
+        padding: 2rem;
+        border-radius: 10px;
+        position: absolute;
+        top: 70px; /* below navbar */
+        right: 20px;
+        width: 200px;
+    }
 
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: linear-gradient(135deg, #2c5530, #1a3d1f);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-                z-index: 999;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-menu li {
-                margin: 1rem 0;
-            }
-            
-            .nav-link {
-                font-size: 1.2rem;
-                padding: 1rem 2rem;
-            }
-        }
-
+    .nav-menu.active {
+        display: flex;
+    }
+}
         /* Additional responsive improvements */
         @media (max-width: 480px) {
             .logo span {
@@ -1016,6 +1013,39 @@
                 padding: 60px 0;
             }
         }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #fff;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+        /* .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        } */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+
     </style>
 
 </body>

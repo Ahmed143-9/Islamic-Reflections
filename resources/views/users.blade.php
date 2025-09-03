@@ -170,7 +170,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; Jannatul Ferdous. All rights reserved. | May Allah guide us all.</p>
+                <p>&copy;Islamic Reflections. All rights reserved. | May Allah guide us all.</p>
             </div>
         </div>
     </footer>

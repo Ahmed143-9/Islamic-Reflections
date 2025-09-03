@@ -22,6 +22,7 @@
                     <li><a href="/quran" class="nav-link">Quran</a></li>
                     <li><a href="/hadith" class="nav-link">Hadith</a></li>
                     <li><a href="/joinus" class="nav-link">About</a></li>
+                    <li><a href="/users" class="nav-link">Writters</a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -151,7 +152,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; Jannatul Ferdous. All rights reserved. | May Allah guide us all.</p>
+                <p>&copy;Islamic Reflections. All rights reserved. | May Allah guide us all.</p>
             </div>
         </div>
     </footer>
@@ -565,6 +566,31 @@ body {
     100% { opacity: 1; }
 }
 
+/* Toggle Mobile Menu */
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background: #2c5530;
+        padding: 2rem;
+        border-radius: 10px;
+        position: absolute;
+        top: 70px; /* below navbar */
+        right: 20px;
+        width: 200px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+}
+
+/* 
+--------------------------------------- */
+  
+
 .current-time {
     animation: pulse 2s infinite;
 }
@@ -601,13 +627,22 @@ body {
             });
         });
 
-        // Mobile menu toggle (basic functionality)
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        // Mobile menu toggle
+            const mobileToggle = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            mobileToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+            // Close alert messages
+            const alertCloseButtons = document.querySelectorAll('.alert-close');
+            alertCloseButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.parentElement.style.display = 'none';
+                });
+            });
 
-        hamburger.addEventListener('click', function() {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-        });
+        
     </script>
 </body>
 </html>

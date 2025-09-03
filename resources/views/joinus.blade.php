@@ -294,7 +294,7 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 Islamic Reflections. All rights reserved. | May Allah guide us all.</p>
+            <p>&copy;Islamic Reflections. All rights reserved. | May Allah guide us all.</p>
         </div>
     </footer>
 
