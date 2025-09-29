@@ -1699,7 +1699,7 @@
                     this.innerHTML = '<i class="fas fa-play"></i> Listen';
                 }, 3000);
             });
-        }
+        
 
         // Close Modal
         function closeModal() {
@@ -1974,13 +1974,17 @@
         });
 
         // Mobile menu toggle
-            const mobileToggle = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
+            document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (mobileToggle && navMenu) {
             mobileToggle.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
                 this.classList.toggle('active');
+            
             });
-            // Close alert messages
+        }
+        })            // Close alert messages
             const alertCloseButtons = document.querySelectorAll('.alert-close');
             alertCloseButtons.forEach(button => {
                 button.addEventListener('click', function() {
